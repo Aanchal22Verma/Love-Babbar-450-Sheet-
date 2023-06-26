@@ -1,7 +1,8 @@
-//gives tle
+#define MOD 1000000007
+
 //recursion + memoization
 #include <bits/stdc++.h> 
-int solve(int n, vector<int> dp){
+int solve(int n, vector<int> &dp){
     //base case 1
     if(n==0)
         return 1;
@@ -14,7 +15,7 @@ int solve(int n, vector<int> dp){
         return dp[n];
 
     //step2
-    dp[n] = solve(n-1, dp)+ solve(n-2, dp);
+    dp[n] = (solve(n-1, dp)+ solve(n-2, dp))%MOD;
     return dp[n];
 }
 int countDistinctWays(int nStairs) {
